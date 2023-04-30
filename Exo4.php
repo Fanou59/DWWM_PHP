@@ -8,6 +8,7 @@ include 'nav.php';
     <?php
     $jeuxVideo = ["JV1", "JV2", "JV3", "JV4", "JV5", "JV6", "JV7"];
     echo "J'affiche le jeux se trouvant dans la première case : " . $jeuxVideo[0] . "<br>";
+
     $nbJeux = count($jeuxVideo);
     echo "J'affiche maitenant le contenu du tableau, qui va contenir " . $nbJeux . " jeux vidéos : <br>";
 
