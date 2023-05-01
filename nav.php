@@ -2,6 +2,9 @@
     <div class="container">
         <div class="navbrand">Forma DWWM - PHP</div>
         <ul>
+            <a href="/index.html">
+                <li>HOME |</li>
+            </a>
             <a href="Exo1.php">
                 <li>Exo 1 |</li>
             </a>

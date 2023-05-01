@@ -176,7 +176,7 @@ a {
     height: 50px;
     padding-left: 10px;
     padding-right: 10px;
-    background: #717171;
+    background: #d1d1d1;
     color: white;
 }
 
@@ -190,7 +190,7 @@ ul li {
 }
 
 ul a:hover {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.424);
 }
 
 main {
