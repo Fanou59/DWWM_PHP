@@ -15,7 +15,13 @@
                 <li>Exo 3 |</li>
             </a>
             <a href="Exo4.php">
-                <li>Exo 4</li>
+                <li>Exo 4 |</li>
+            </a>
+            <a href="Exo5.php">
+                <li>Exo 5 |</li>
+            </a>
+            <a href="Exo6.php">
+                <li>Exo 6 |</li>
             </a>
         </ul>
     </div>
