@@ -198,3 +198,9 @@ main {
     padding-right: 50px;
     margin-top: 20px;
 }
+
+h1,
+h2 {
+    margin-bottom: 2rem;
+
+}
