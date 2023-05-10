@@ -2,9 +2,6 @@
     <div class="container">
         <div class="navbrand">Forma DWWM - PHP</div>
         <ul>
-            <a href="/index.html">
-                <li>HOME |</li>
-            </a>
             <a href="Exo0.php">
                 <li>Exo 0 |</li>
             </a>
@@ -35,8 +32,11 @@
             <a href="Exo9.php">
                 <li>Exo 9 |</li>
             </a>
-            <a href="Exo10.php">
-                <li>Exo 10</li>
+            <a href="login.php">
+                <li>LOGIN |</li>
+            </a>
+            <a href="logout.php">
+                <li>Deconnexion</li>
             </a>
         </ul>
     </div>
