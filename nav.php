@@ -32,6 +32,9 @@
             <a href="Exo9.php">
                 <li>Exo 9 |</li>
             </a>
+            <a href="POO1.php">
+                <li>POO1 |</li>
+            </a>
             <a href="login.php">
                 <li>LOGIN |</li>
             </a>
