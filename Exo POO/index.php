@@ -1,5 +1,5 @@
 <?php
-class livres
+class Livres
 {
     public string $titre;
     public string $auteur;
@@ -14,11 +14,18 @@ class livres
 
     public function afficher()
     {
-        echo 'Titre du livre : ' . $this->titre . '<br>';
-        echo 'Auteur du livre : ' . $this->auteur . '<br>';
-        echo 'Prix du livre : ' . $this->prix . ' €<br>';
+        $h = 'Titre du livre : ' . $this->titre . '<br>';
+        $h .= 'Auteur du livre : ' . $this->auteur . '<br>';
+        $h .= 'Prix du livre : ' . $this->prix . ' €<br>';
+        return $h;
     }
 }
+
+$newLivre = new Livres("Le chat bottée", "Charles Perault", 16);
+echo $newLivre->afficher();
+echo "<hr>";
+
+
 /*Definir une class EMPLOYEE avec pour attribut (int)matricule, (string)nom, (string)prenom,
 (string)date de naissance, (string)date embauche, (int)salaire
 */
@@ -57,15 +64,13 @@ class Employee
     {
         $cejour = date("Y-m-d");
         $diff = date_diff(date_create($this->DateEmbauche), date_create($cejour));
-        return $diff;
+        return $diff->format(('%y'));
     }
     //Méthode pour calculer l'augmentation de l'employé
     public function augmentation()
     {
-        /*J'appelle la fonction anciennete pour les conditions d'attribution
-        Attention car anciennete() ne return pas un INT.
-        */
-        $dateEntree = $this->anciennete()->format('%y');
+        /*J'appelle la fonction anciennete pour les conditions d'attribution*/
+        $dateEntree = $this->anciennete();
         $newSalaire = 0;
         if ($dateEntree < 5) {
             $newSalaire = $this->salaire * (1 + .02);
@@ -78,6 +83,16 @@ class Employee
             return $newSalaire;
         }
     }
+    public function afficher()
+    {
+        $h = "Matricule : " . $this->matricule . "<br>";
+        $h .= "Nom : " . $this->nom . "<br>";
+        $h .= "Prénom : " . $this->prenom . "<br>";
+        $h .= "Date de naissance : " . $this->DateDeNaissance . "<br>";
+        $h .= "Date d'embauche : " . $this->DateEmbauche . "<br>";
+        $h .= "Salaire : " . $this->salaire . " €<br>";
+        return $h;
+    }
 }
 
 $employe1 = new Employee(
@@ -88,16 +103,8 @@ $employe1 = new Employee(
     "27-08-2020",
     1000
 );
-echo "Matricule : " . $employe1->matricule . "<br>";
-echo "Nom : " . $employe1->nom . "<br>";
-echo "Prénom : " . $employe1->prenom . "<br>";
-echo "Date de naissance : " . $employe1->DateDeNaissance . "<br>";
-echo "Date d'embauche : " . $employe1->DateEmbauche . "<br>";
-echo "Salaire : " . $employe1->salaire . " €<br>";
 
+echo $employe1->afficher();
 
-//affichage de l'age de l'employée au format YEAR (%y)
-echo "L'age de l'employé est de " . $employe1->age()->format('%y') . " ans <br>";
-
-echo "L'ancienneté de l'employé est de " . $employe1->anciennete()->format('%y') . " ans <br>";
+echo "Votre ancienneté est de : " . $employe1->anciennete() . " ans<br>";
 echo "Votre nouveau salaire est de : " . $employe1->augmentation() . " €<br>";
