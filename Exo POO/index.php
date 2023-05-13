@@ -20,7 +20,7 @@ class Livres
         return $h;
     }
 }
-
+echo "<h1>Exercice N°1 sur la gestion d'une biblio</h1>";
 $newLivre = new Livres("Le chat bottée", "Charles Perault", 16);
 echo $newLivre->afficher();
 echo "<hr>";
@@ -103,6 +103,7 @@ $employe1 = new Employee(
     "27-08-2020",
     1000
 );
+echo "<h1>Exercice N°2 sur la gestion d'employés</h1>";
 
 echo $employe1->afficher();
 
