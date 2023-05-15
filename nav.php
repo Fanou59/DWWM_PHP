@@ -38,6 +38,7 @@
                 </ul>
             </li>
             <li><a href="POO1.php">POO</a></li>
+            <li><a href="/DWWM_PHP/Exo POO/poo_exo.php">POO Exo</a></li>
             <li><a href="login.php"><i class="fa-solid fa-user" style="color: #ffffff;"></i></a></li>
             <li><a href="logout.php"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a></li>
 

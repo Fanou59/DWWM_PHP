@@ -74,14 +74,12 @@ class Employee
         $newSalaire = 0;
         if ($dateEntree < 5) {
             $newSalaire = $this->salaire * (1 + .02);
-            return $newSalaire;
         } elseif ($dateEntree < 10) {
             $newSalaire = $this->salaire * (1 + .05);
-            return $newSalaire;
         } else {
             $newSalaire = $this->salaire * (1 + .1);
-            return $newSalaire;
         }
+        return $newSalaire;
     }
     public function afficher()
     {
