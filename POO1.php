@@ -62,15 +62,22 @@ include 'nav.php';
         {
             //code pour sauter
         }
+        public function afficherDetails()
+        {
+            $h = "Nom : " . $this->nom;
+            $h .= ", Prénom : " . $this->prenom;
+            $h .= ", Age : " . $this->age;
+            return $h;
+        }
     }
     // création de l'objet "stéphane"
     $stephane = new Personne("GUERY", "Stéphane", 47);
-    echo $stephane->getNom() . "<br>"; //J'appelle le GETTER car la propriété est PRIVATE
+    // echo $stephane->getNom() . "<br>"; //J'appelle le GETTER car la propriété est PRIVATE
 
 
-    $stephane->setNom("SMAGGHE"); //J'utilise le SETTER pour modifier la propriété NOM
-    echo "Le nouveau nom est : " . $stephane->getNom(); //J'apelle le GETTER pour afficher la propriété
-
+    // $stephane->setNom("SMAGGHE"); //J'utilise le SETTER pour modifier la propriété NOM
+    // echo "Le nouveau nom est : " . $stephane->getNom(); //J'apelle le GETTER pour afficher la propriété
+    echo $stephane->afficherDetails();
     ?>
 </main>
 
