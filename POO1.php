@@ -70,6 +70,28 @@ include 'nav.php';
             return $h;
         }
     }
+
+    class Employe extends Personne
+    {
+        private $salaire;
+
+        public function __construct($nom, $prenom, $age, $salaire)
+        {
+            parent::__construct($nom, $prenom, $age);
+            $this->salaire = $salaire;
+        }
+
+
+        public function getSalaire()
+        {
+            return $this->salaire;
+        }
+        public function augmenterSalaire($pourcentage)
+        {
+            $this->salaire += $this->salaire * $pourcentage / 100;
+            return $this->salaire;
+        }
+    }
     // création de l'objet "stéphane"
     $stephane = new Personne("GUERY", "Stéphane", 47);
     // echo $stephane->getNom() . "<br>"; //J'appelle le GETTER car la propriété est PRIVATE
@@ -77,7 +99,14 @@ include 'nav.php';
 
     // $stephane->setNom("SMAGGHE"); //J'utilise le SETTER pour modifier la propriété NOM
     // echo "Le nouveau nom est : " . $stephane->getNom(); //J'apelle le GETTER pour afficher la propriété
-    echo $stephane->afficherDetails();
+    // echo $stephane->afficherDetails();
+
+    $jean = new Employe("Dupont", "Jean", 30, 1000);
+    $paul = new Employe("Durant", "Paul", 28, 5000);
+    echo $jean->afficherDetails() . "<br>" . "le salaire est de : " . $jean->getSalaire() . "<br> le nouveau salaire est de : " . $jean->augmenterSalaire(10) . "euros" . "<br>";
+    echo "<hr>";
+    echo $paul->afficherDetails() . "<br>" . "le salaire est de : " . $paul->getSalaire() . "<br> le nouveau salaire est de : " . $paul->augmenterSalaire(10) . "euros" . "<br>";
+
     ?>
 </main>
 
