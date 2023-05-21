@@ -39,14 +39,24 @@ foreach ($parseWords as $parseWord) {
 //Application de la méthode AFFINE en fonction du tableau de KEYS
 for ($i = 0; $i < count($position); $i++) {
     $affines[] = $alphabet[($position[$i] * $keys[0] + $keys[1]) % 26]; //affiche la valeur correspondante
-    // echo $affine; // affiche les lettres transformées.
+
 }
+echo "<pre>";
+print_r($affines);
+echo "</pre>";
+
+
+echo "<br>";
 //juste une boucle pour afficher les lettres à la suite des autres (sera supprimée)
 foreach ($affines as $affine) {
     echo $affine;
 }
-
 /*
+$affine = ['a','b','c','d','e']
+Je peux récupérer la longueur du mot dans $words avec une boucle FOREACH + STRLEN
+mais comment afficher cela ?
+J'aimerai obtenir l'affichage des strlen($word) (soit 8) premiers index de $affine.
+
 **** A partir d'ici c'est du test
 */
 
@@ -63,4 +73,4 @@ for ($i = 0; $i < count($words); $i++) {
     }
     echo $max;
 }
-// il faut maintenant découper $transform en fonction du nombre de lettre
+// il faudrait pouvoir découper $transform en fonction du nombre de lettre
