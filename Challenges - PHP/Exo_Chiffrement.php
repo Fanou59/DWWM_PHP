@@ -21,10 +21,9 @@ function chiffrer($words, $keys)
 
         for ($i = 0; $i < strlen($word); $i++) {
             $lettre = substr($word, $i, 1); // retourne chaque lettre du mot WORD
-            $index = strpos($alpha, $lettre); // donne e = position 4 dans l'alphabet
+            $index = strpos($alpha, $lettre); // donne la position de la lettre dans l'alphabet
             $affine = ($index * $keys[0] + $keys[1]) % 26; // j'applique la méthode AFFINE pour obtenir l'index dans l'alphabet
-            // e = 4 => affine => e= 4*19 + 23 = 99 % 26 = 21 = e| donc $affine = 21
-            $lettreCodee = $alpha[$affine]; // je dois avoir e devient u
+            $lettreCodee = $alpha[$affine]; // obtenir le correspondance de lettre
             $motChiffre .= $lettreCodee; //je mets chaque lettres trouvés dans la variable mot
 
         }
