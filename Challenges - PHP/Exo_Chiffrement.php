@@ -29,7 +29,7 @@ function chiffrer($words, $keys)
         }
         $motsDePasseChiffres[] = $motChiffre; //le mot entre dans le tableau
     }
-    return implode("-", $motsDePasseChiffres); // j'affiche les valeurs du tableau séparées par un tiret
+    return implode("-", $motsDePasseChiffres); // je retourne les valeurs du tableau séparées par un tiret
 }
 
 $words = ['trottoir', 'inhumait', 'badinent', 'matees', 'hegire', 'quarante', 'flambait', 'incubait', 'nicherai'];
