@@ -24,7 +24,7 @@ function chiffrer($words, $keys)
             $index = strpos($alpha, $lettre); // donne e = position 4 dans l'alphabet
             $affine = ($index * $keys[0] + $keys[1]) % 26; // j'applique la méthode AFFINE pour obtenir l'index dans l'alphabet
             // e = 4 => affine => e= 4*19 + 23 = 99 % 26 = 21 = e| donc $affine = 21
-            $lettreCodee = $alpha[$affine - 1]; // je dois avoir e devient u
+            $lettreCodee = $alpha[$affine]; // je dois avoir e devient u
             $motChiffre .= $lettreCodee; //je mets chaque lettres trouvés dans la variable mot
 
         }
@@ -33,8 +33,8 @@ function chiffrer($words, $keys)
     return implode("-", $motsDePasseChiffres); // j'affiche les valeurs du tableau séparées par un tiret
 }
 
-$words = ['excitons', 'reconnue', 'froncera', 'frittage', 'laquasse', 'dodinant'];
-$keys = [19, 23];
+$words = ['pistes', 'roteriez', 'trotteur', 'vendange', 'antivols', 'soignant', 'bernique', 'inhument', 'gaminent'];
+$keys = [21, 25];
 
 $newMotDePasse = chiffrer($words, $keys);
 echo $newMotDePasse;
