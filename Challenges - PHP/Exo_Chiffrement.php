@@ -26,51 +26,23 @@ function parse($tabs)
 
 $words = ['excitons', 'reconnue', 'froncera', 'frittage', 'laquasse', 'dodinant'];
 $keys = [19, 23];
-$alphabet = range("a", "z"); // créer un tableau de référence avec les lettres de l'alphabet
-
-//Je parse le tableau $words pour extraire les lettres 
-$parseWords = parse($words);
-
-//Je recherche la correspondance entre les lettres du tableau WORDS et la clé du tableau ALPHABET
-foreach ($parseWords as $parseWord) {
-    $position[] = array_search($parseWord, $alphabet);
-}
-
-//Application de la méthode AFFINE en fonction du tableau de KEYS
-for ($i = 0; $i < count($position); $i++) {
-    $affines[] = $alphabet[($position[$i] * $keys[0] + $keys[1]) % 26]; //affiche la valeur correspondante
-
-}
-echo "<pre>";
-print_r($affines);
-echo "</pre>";
+$alpha = 'abcdefghijklmnopqrstuvwxyz';
 
 
-echo "<br>";
-//juste une boucle pour afficher les lettres à la suite des autres (sera supprimée)
-foreach ($affines as $affine) {
-    echo $affine;
-}
-/*
-$affine = ['a','b','c','d','e']
-Je peux récupérer la longueur du mot dans $words avec une boucle FOREACH + STRLEN
-mais comment afficher cela ?
-J'aimerai obtenir l'affichage des strlen($word) (soit 8) premiers index de $affine.
 
-**** A partir d'ici c'est du test
-*/
 
-// comment obtenir un tableau de $transform en utilisant la longueur de chaque mot de $words ?
+foreach ($words as $word) {
+    $motChiffre = ""; //initie une variable pour récupérer les lettres codées et en faire un mot
 
-echo '<br>';
-echo implode("-", $words);
-echo '<hr>';
+    for ($i = 0; $i < strlen($word); $i++) {
+        $lettre = parse($words); // decoupe les mots de WORDS en lettre
+        $index = strpos($alpha, $lettre[$i]); // donne e = position 4 dans l'alphabet
+        $affine = ($index * $keys[0] + $keys[1]) % 26; // j'applique la méthode AFFINE pour obtenir l'index dans l'alphabet
+        // e = 4 => affine => e= 4*19 + 23 = 99 % 26 = 21 = e| donc $affine = 21
+        $lettreCodee = $alpha[$affine - 1]; // je dois avoir e devient u
+        $motChiffre .= $lettreCodee; //je mets chaque lettres trouvés dans la variable mot
 
-// compte le nombre de lettres par mots
-for ($i = 0; $i < count($words); $i++) {
-    foreach ($words as $word) {
-        $max = strlen($word);
     }
-    echo $max;
+    $motsDePasseChiffres[] = $motChiffre; //le mot entre dans le tableau
 }
-// il faudrait pouvoir découper $transform en fonction du nombre de lettre
+echo implode("-", $motsDePasseChiffres); // j'affiche les valeurs du tableau séparées par un tiret
