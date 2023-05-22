@@ -33,8 +33,8 @@ function chiffrer($words, $keys)
     return implode("-", $motsDePasseChiffres); // j'affiche les valeurs du tableau séparées par un tiret
 }
 
-$words = ['pistes', 'roteriez', 'trotteur', 'vendange', 'antivols', 'soignant', 'bernique', 'inhument', 'gaminent'];
-$keys = [21, 25];
+$words = ['trottoir', 'inhumait', 'badinent', 'matees', 'hegire', 'quarante', 'flambait', 'incubait', 'nicherai'];
+$keys = [11, 21];
 
 $newMotDePasse = chiffrer($words, $keys);
 echo $newMotDePasse;
