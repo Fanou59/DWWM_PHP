@@ -22,8 +22,9 @@ La somme de la puissance exacte nécessaire à abattre tous les vaisseaux ennemi
 
 function puissance($array)
 {
-    $puissanceTotale = 0;
-    foreach ($array as $value) {
+    $puissanceTotale = 0; //initie la puissance exacte à 0
+    foreach ($array as $value) { //parcours le tableau des vaisseaux
+        //conditions sur les règles
         if ($value < 100) {
             $puissance = ceil($value / 10);
         } elseif ($value < 1000) {
@@ -32,7 +33,7 @@ function puissance($array)
             $puissance = 80 + 5 * ceil($value / 1000);
         }
 
-        $puissanceTotale += $puissance;
+        $puissanceTotale += $puissance; //additionne chaque puissance nécessaire à chaque tour de tableau
     }
     return $puissanceTotale;
 }
