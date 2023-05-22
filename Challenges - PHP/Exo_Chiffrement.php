@@ -12,37 +12,29 @@ Règles
 
 Ton objectif est de retourner la liste des mots de passe chiffrés séparés par des tirets.
 */
-function parse($tabs)
+function chiffrer($words, $keys)
 {
-    foreach ($tabs as $tab) {
-        for ($i = 0; $i < strlen($tab); $i++) {
-            //substr = je retourne la 1 lettre et ainsi $i de suite
-            //que je mets dans un tableau $result
-            $result[] = substr($tab, $i, 1);
+    $alpha = 'abcdefghijklmnopqrstuvwxyz';
+
+    foreach ($words as $word) {
+        $motChiffre = ""; //initie une variable pour récupérer les lettres codées et en faire un mot
+
+        for ($i = 0; $i < strlen($word); $i++) {
+            $lettre = substr($word, $i, 1); // retourne chaque lettre du mot WORD
+            $index = strpos($alpha, $lettre); // donne e = position 4 dans l'alphabet
+            $affine = ($index * $keys[0] + $keys[1]) % 26; // j'applique la méthode AFFINE pour obtenir l'index dans l'alphabet
+            // e = 4 => affine => e= 4*19 + 23 = 99 % 26 = 21 = e| donc $affine = 21
+            $lettreCodee = $alpha[$affine - 1]; // je dois avoir e devient u
+            $motChiffre .= $lettreCodee; //je mets chaque lettres trouvés dans la variable mot
+
         }
+        $motsDePasseChiffres[] = $motChiffre; //le mot entre dans le tableau
     }
-    return $result;
+    return implode("-", $motsDePasseChiffres); // j'affiche les valeurs du tableau séparées par un tiret
 }
 
 $words = ['excitons', 'reconnue', 'froncera', 'frittage', 'laquasse', 'dodinant'];
 $keys = [19, 23];
-$alpha = 'abcdefghijklmnopqrstuvwxyz';
 
-
-
-
-foreach ($words as $word) {
-    $motChiffre = ""; //initie une variable pour récupérer les lettres codées et en faire un mot
-
-    for ($i = 0; $i < strlen($word); $i++) {
-        $lettre = parse($words); // decoupe les mots de WORDS en lettre
-        $index = strpos($alpha, $lettre[$i]); // donne e = position 4 dans l'alphabet
-        $affine = ($index * $keys[0] + $keys[1]) % 26; // j'applique la méthode AFFINE pour obtenir l'index dans l'alphabet
-        // e = 4 => affine => e= 4*19 + 23 = 99 % 26 = 21 = e| donc $affine = 21
-        $lettreCodee = $alpha[$affine - 1]; // je dois avoir e devient u
-        $motChiffre .= $lettreCodee; //je mets chaque lettres trouvés dans la variable mot
-
-    }
-    $motsDePasseChiffres[] = $motChiffre; //le mot entre dans le tableau
-}
-echo implode("-", $motsDePasseChiffres); // j'affiche les valeurs du tableau séparées par un tiret
+$newMotDePasse = chiffrer($words, $keys);
+echo $newMotDePasse;
