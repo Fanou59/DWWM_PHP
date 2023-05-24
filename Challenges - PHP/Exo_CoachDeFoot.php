@@ -30,5 +30,7 @@ rsort($joueurs);
 for ($i = 0; $i <= 11; $i++) {
     $onze[] = $joueurs[$i];
 }
-echo array_search($onze, $joueurs);
-// print_r($onze);
+print_r($onze);
+// foreach ($onze as $value) {
+//     $selection = array_keys($joueurs, $value);
+// }
